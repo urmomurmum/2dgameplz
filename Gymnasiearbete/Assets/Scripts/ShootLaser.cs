@@ -1,8 +1,8 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class ShootLaser : MonoBehaviour
 {
     public Material material;
     LaserBeam beam;
@@ -11,4 +11,4 @@ public class NewBehaviourScript : MonoBehaviour
     {
         beam = new LaserBeam(gameObject.transform.position, gameObject.transform.right , material);
     }
-}*/
+}
