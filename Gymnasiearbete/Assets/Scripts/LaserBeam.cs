@@ -1,8 +1,7 @@
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 public class LaserBeam
@@ -28,4 +27,4 @@ public class LaserBeam
         this.laser.startColor = Color.green;
         this.laser.endColor = Color.green;
     }
-}
+}*/
