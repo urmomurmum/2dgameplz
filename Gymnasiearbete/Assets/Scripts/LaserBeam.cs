@@ -33,7 +33,20 @@ public class LaserBeam
     void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser)
     {
         laserIndices.Add(pos);
-        UpdateLaser();
+
+        Ray ray = new Ray(pos, dir);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 30, 1))
+        {
+            laserIndices.Add(hit.point);
+            UpdateLaser();
+        }
+        else
+        {
+            laserIndices.Add(ray.GetPoint(30));
+            UpdateLaser();
+        }
     }
 
     void UpdateLaser()
