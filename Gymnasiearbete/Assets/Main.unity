@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 637755983}
   - component: {fileID: 637755982}
   - component: {fileID: 637755986}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: KrabbaB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 1316089414}
   - component: {fileID: 1316089410}
   - component: {fileID: 1316089415}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: KrabbaR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
