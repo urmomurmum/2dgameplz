@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        Physics2D.IgnoreLayerCollision(8, 9);
     }
 
     private void FixedUpdate()
@@ -24,5 +26,6 @@ public class PlayerMovement : MonoBehaviour
         //Movement
 
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
     }
 }
