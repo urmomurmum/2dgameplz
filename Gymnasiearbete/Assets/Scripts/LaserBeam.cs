@@ -11,6 +11,7 @@ public class LaserBeam
     GameObject laserObj;
     LineRenderer laser;
     List<Vector3> laserIndices = new List<Vector3>();
+    Color greenColor = new Color(0f, 1f, 0f, 1f);
 
     public LaserBeam(Vector3 pos, Vector3 dir, Material material)
     {
@@ -24,8 +25,8 @@ public class LaserBeam
         this.laser.startWidth = 0.1f;
         this.laser.endWidth = 0.1f;
         this.laser.material = material;
-        this.laser.startColor = Color.green;
-        this.laser.endColor = Color.green;
+        this.laser.startColor = greenColor;
+        this.laser.endColor = greenColor;
 
         CastRay(pos, dir, laser);
     }
