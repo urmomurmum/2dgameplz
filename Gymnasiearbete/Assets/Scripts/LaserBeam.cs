@@ -11,7 +11,7 @@ public class LaserBeam
     GameObject laserObj;
     LineRenderer laser;
     List<Vector3> laserIndices = new List<Vector3>();
-    Color greenColor = new Color(0f, 1f, 0f, 1f);
+    public Color greenColor = new Color(0.012f, 0.663f, 0.467f);
 
     public LaserBeam(Vector3 pos, Vector3 dir, Material material)
     {
