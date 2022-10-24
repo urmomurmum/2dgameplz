@@ -26,5 +26,25 @@ public class LaserBeam
         this.laser.material = material;
         this.laser.startColor = Color.green;
         this.laser.endColor = Color.green;
+
+        CastRay(pos, dir, laser);
+    }
+
+    void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser)
+    {
+        laserIndices.Add(pos);
+        UpdateLaser();
+    }
+
+    void UpdateLaser()
+    {
+        int count = 0;
+        laser.positionCount = laserIndices.Count;
+
+        foreach (Vector3 idx in laserIndices)
+        {
+            laser.SetPosition(count, idx);
+            count++;
+        }
     }
 }
