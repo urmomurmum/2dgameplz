@@ -6,19 +6,19 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    public Rigidbody2D rb;
+    public Rigidbody rb;
 
-    Vector2 movement;
+    Vector3 movement;
 
     // Update is called once per frame
     void Update()
     {
-        Physics2D.IgnoreLayerCollision(8, 9);
+        Physics.IgnoreLayerCollision(8, 9);
         //Input
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
+        
        
     }
 

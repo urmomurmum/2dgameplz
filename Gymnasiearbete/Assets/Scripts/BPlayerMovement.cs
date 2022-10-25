@@ -6,9 +6,9 @@ public class BPlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    public Rigidbody2D rb;
+    public Rigidbody rb;
 
-    Vector2 movement;
+    Vector3 movement;
 
     // Update is called once per frame
     void Update()
