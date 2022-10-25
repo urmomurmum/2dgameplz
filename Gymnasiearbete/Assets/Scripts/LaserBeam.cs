@@ -8,14 +8,16 @@ using UnityEngine;
 public class LaserBeam
 {
 
-    Vector3 pos, dir;
+    Vector2 pos, dir;
 
     GameObject laserObj;
     LineRenderer laser;
-    List<Vector3> laserIndices = new List<Vector3>();
+    List<Vector2> laserIndices = new List<Vector2>();
     public Color greenColor = new Color(0.012f, 0.663f, 0.467f);
 
-    public LaserBeam(Vector3 pos, Vector3 dir, Material material)
+    Rigidbody2D rb2D;
+
+    public LaserBeam(Vector2 pos, Vector2 dir, Material material)
     {
         this.laser = new LineRenderer();
         this.laserObj = new GameObject();
@@ -33,7 +35,7 @@ public class LaserBeam
         CastRay(pos, dir, laser);
     }
 
-    void CastRay(Vector3 pos, Vector3 dir, LineRenderer laser)
+    void CastRay(Vector2 pos, Vector2 dir, LineRenderer laser)
     {
         laserIndices.Add(pos);
 
@@ -56,19 +58,19 @@ public class LaserBeam
         int count = 0;
         laser.positionCount = laserIndices.Count;
 
-        foreach (Vector3 idx in laserIndices)
+        foreach (Vector2 idx in laserIndices)
         {
             laser.SetPosition(count, idx);
             count++;
         }
     }
 
-    void checkHit(RaycastHit hitInfo, Vector3 direction, LineRenderer laser)
+    void checkHit(RaycastHit hitInfo, Vector2 direction, LineRenderer laser)
     {
         if (hitInfo.collider.gameObject.tag == "Mirror")
         {
-            Vector3 pos = hitInfo.point;
-            Vector3 dir = Vector3.Reflect(direction, hitInfo.normal);
+            Vector2 pos = hitInfo.point;
+            Vector2 dir = Vector2.Reflect(direction, hitInfo.normal);
 
             CastRay(pos, dir, laser);
         }
