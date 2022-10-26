@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class LaserBeam
@@ -76,7 +77,7 @@ public class LaserBeam
         }
         else if(hitInfo.collider.gameObject.tag == "Goal")
         {
-
+            SceneManager.LoadScene(1);
         }
         else
         {
