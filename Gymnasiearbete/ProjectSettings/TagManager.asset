@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mirror
+  - Player_blue
+  - Player_red
+  - Goal
   layers:
   - Default
   - TransparentFX
