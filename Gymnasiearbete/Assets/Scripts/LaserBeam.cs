@@ -47,7 +47,7 @@ public class LaserBeam
         }
         else
         {
-            //laserIndices.Add(ray.GetPoint(30)); FIXAR LAGG
+            laserIndices.Add(ray.GetPoint(30));
             UpdateLaser();
         }
     }
@@ -77,10 +77,14 @@ public class LaserBeam
         {
             SceneManager.LoadScene(1);
         }
-        else
+        else if(hitInfo.collider.gameObject != null)
         {
             laserIndices.Add(hitInfo.point);
             UpdateLaser();
+        }
+        else
+        {
+            laserIndices.Clear();
         }
     }
 }
