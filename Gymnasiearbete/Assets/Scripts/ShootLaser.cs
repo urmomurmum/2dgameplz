@@ -7,9 +7,12 @@ public class ShootLaser : MonoBehaviour
     public Material material;
     LaserBeam beam;
 
-    void Update()
+    void FixedUpdate()
     {
-        Destroy(GameObject.Find("Laser Beam"));
+        if (beam != null)
+        {
+            Destroy(GameObject.Find("Laser Beam"));
+        }
         beam = new LaserBeam(gameObject.transform.position, gameObject.transform.right , material);
     }
 }
