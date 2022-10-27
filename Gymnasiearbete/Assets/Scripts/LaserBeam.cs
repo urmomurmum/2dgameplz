@@ -11,12 +11,10 @@ public class LaserBeam
 
     Vector2 pos, dir;
 
-    GameObject laserObj;
+    public GameObject laserObj;
     LineRenderer laser;
     List<Vector2> laserIndices = new List<Vector2>();
     public Color greenColor = new Color(0.012f, 0.663f, 0.467f);
-
-    Rigidbody2D rb2D;
 
     public LaserBeam(Vector2 pos, Vector2 dir, Material material)
     {
@@ -49,7 +47,7 @@ public class LaserBeam
         }
         else
         {
-            laserIndices.Add(ray.GetPoint(30));
+            //laserIndices.Add(ray.GetPoint(30)); FIXAR LAGG
             UpdateLaser();
         }
     }
