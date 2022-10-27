@@ -9,7 +9,7 @@ public class ChangeMirrorTag : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         float speed = rb.velocity.magnitude;
 
-        var child = GameObject.Find("Mirror");
+        GameObject child = gameObject.transform.GetChild(0).gameObject;
 
         if (speed == 0)
         {

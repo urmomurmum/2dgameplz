@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -75,16 +76,13 @@ public class LaserBeam
         }
         else if(hitInfo.collider.gameObject.tag == "Goal")
         {
+            Thread.Sleep(1000);
             SceneManager.LoadScene(1);
         }
         else if(hitInfo.collider.gameObject != null)
         {
             laserIndices.Add(hitInfo.point);
             UpdateLaser();
-        }
-        else
-        {
-            laserIndices.Clear();
         }
     }
 }
