@@ -14,7 +14,7 @@ public class GrabController : MonoBehaviour
 
         if (grabCheck.collider != null && grabCheck.collider.tag == "Box")
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKey(KeyCode.G))
             {
                 grabCheck.collider.gameObject.transform.parent = boxHolder;
                 grabCheck.collider.gameObject.transform.position = boxHolder.position;
@@ -23,7 +23,7 @@ public class GrabController : MonoBehaviour
             else
             {
                 grabCheck.collider.gameObject.transform.parent = null;
-                grabCheck.collider.gameObject.GetComponent <Rigidbody2D>().isKinematic = false;
+                grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             }
         }
     }
