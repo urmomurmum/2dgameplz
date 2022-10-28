@@ -10,7 +10,7 @@ public class GrabController : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist);
+        RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, transform.right * rayDist);
 
         if (grabCheck.collider != null && grabCheck.collider.tag == "Box")
         {
@@ -26,5 +26,7 @@ public class GrabController : MonoBehaviour
                 grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             }
         }
+
+        Debug.DrawRay(grabDetect.position, transform.right * rayDist);
     }
 }
