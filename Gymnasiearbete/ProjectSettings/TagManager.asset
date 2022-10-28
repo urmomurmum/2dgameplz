@@ -8,6 +8,7 @@ TagManager:
   - Player_blue
   - Player_red
   - Goal
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - 
   - KrabbaR
   - KrabbaB
+  - Floor
   - Wall
-  - 
   - 
   - 
   - 
