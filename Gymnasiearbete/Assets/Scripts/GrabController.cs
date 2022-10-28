@@ -44,6 +44,17 @@ public class GrabController : MonoBehaviour
             }
         }
 
+        if (movement.x > 0 && grabbedObject == null)
+        {
+            grabPoint.transform.position = grabPoint.transform.parent.TransformPoint(1.829f, -0.229f, 0);
+            rayPoint.transform.position = rayPoint.transform.parent.TransformPoint(0.848f, -0.241f, 0);
+        }
+        if (movement.x < 0 && grabbedObject == null)
+        {
+            grabPoint.transform.position = grabPoint.transform.parent.TransformPoint(-1.829f, -0.229f, 0);
+            rayPoint.transform.position = rayPoint.transform.parent.TransformPoint(-0.848f, -0.241f, 0);
+        }
+
         Debug.DrawRay(rayPoint.position, movement * rayDistance);
     }
 }
