@@ -4,29 +4,46 @@ using UnityEngine;
 
 public class GrabController : MonoBehaviour
 {
-    public Transform grabDetect;
-    public Transform boxHolder;
-    public float rayDist;
+    public Transform grabPoint;
+    public Transform rayPoint;
+    public float rayDistance;
+
+    private GameObject grabbedObject;
+    private int layerIndex;
+
+
+    public Vector2 movement;
+
+    private void Start()
+    {
+        layerIndex = LayerMask.NameToLayer("Objects");
+    }
 
     void Update()
     {
-        RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, transform.right * rayDist);
+        movement.x = Input.GetAxisRaw("Horizontal");
+        
 
-        if (grabCheck.collider != null && grabCheck.collider.tag == "Box")
+        RaycastHit2D hitInfo = Physics2D.Raycast(rayPoint.position, movement, rayDistance);
+
+        if (hitInfo.collider != null && hitInfo.collider.gameObject.layer == layerIndex)
         {
-            if (Input.GetKey(KeyCode.G))
+            
+            if (Input.GetKeyDown(KeyCode.G) && grabbedObject == null)
             {
-                grabCheck.collider.gameObject.transform.parent = boxHolder;
-                grabCheck.collider.gameObject.transform.position = boxHolder.position;
-                grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                grabbedObject = hitInfo.collider.gameObject;
+                grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
+                grabbedObject.transform.position = grabPoint.position;
+                grabbedObject.transform.SetParent(transform);
             }
-            else
+            else if (Input.GetKeyDown(KeyCode.G))
             {
-                grabCheck.collider.gameObject.transform.parent = null;
-                grabCheck.collider.gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                grabbedObject.transform.SetParent(null);
+                grabbedObject = null;
             }
         }
 
-        Debug.DrawRay(grabDetect.position, transform.right * rayDist);
+        Debug.DrawRay(rayPoint.position, movement * rayDistance);
     }
 }
